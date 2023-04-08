@@ -34,5 +34,47 @@ const getVideos = async () => {
     duration.textContent = pretvori(Number(el.duration));
     card.appendChild(duration);
   });
+  linkovi = document.getElementsByClassName("link");
+  users.Video.forEach((svaki, index) => {
+    if (index) {
+      linkovi[index].addEventListener("click", function () {
+        let broj = 0;
+        if (Array.from(container.children).length > 25) {
+          const videoPusteni = container.lastChild;
+          // console.log(videoPusteni);
+          container.removeChild(videoPusteni);
+        }
+        title1 = document.createElement("h2");
+        title1.textContent = svaki.name;
+        newdiv = document.createElement("div");
+        video = document.createElement("video");
+        video.src = svaki.source.hd;
+        video.controls = "true";
+        video.muted = false;
+        video.loop = "true";
+        video.height = "430";
+        video.width = "700";
+        video.autoplay = "true";
+        video.style.justifySelf = "center";
+        newdiv.append(video);
+        newdiv.style.width = "100%";
+        newdiv.style.height = "27rem";
+        newdiv.style.gridRowStart = "1";
+        newdiv.style.display = "grid";
+        newdiv.style.justifyContent = "center";
+
+        newdiv.style.gridColumnEnd = "1";
+        newdiv.style.gridColumnStart = "6";
+        container.append(newdiv);
+        newdiv.append(title1);
+
+        window.scrollTo({
+          left: 0,
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+    }
+  });
 };
 getVideos();

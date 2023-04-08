@@ -36,7 +36,7 @@ h1 {
 }
 img {
   height: 16vh;
-  width: 100%;
+  width: 99%;
 }
 h3 {
   font-size: 15px;
@@ -46,4 +46,8 @@ a {
 }
 .kartica:hover {
   transform: scale(1.05);
+}
+h2 {
+  grid-row-start: 1;
+  justify-self: center;
 }
